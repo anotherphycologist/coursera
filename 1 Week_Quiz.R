@@ -29,8 +29,22 @@ badoz <-is.na(quiz$Ozone) # creates a logical vector, which tells me where the N
 quiz$Ozone[!badoz] # gives me all the values of Ozone without NAs
 mean(quiz$Ozone[!badoz]) # mean without NAs
 
-#Q18: subset rows: Ozone > 31, Temp > 90. What is the mean of Solar.R in the subset?
+# Q18: subset rows: Ozone > 31, Temp > 90. What is the mean of Solar.R in the subset?
 
 good <- subset(quiz, Ozone > 31 & Temp > 90) # Gives me a defined subset as new data!
 mean(good$Solar.R)
 
+# Q19: What is the mean of "Temp" when "Month" is equal to 6?
+
+June <- subset(quiz, Month==6)
+June
+
+mean(June$Temp)
+
+# Q20: What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
+
+May <- subset(quiz, Month==5)
+May
+
+max(May$Ozone, na.rm = TRUE) # missing values have to be removed!
+help(max) # read the help files closely!!! in my case, only the na.rm was missing
